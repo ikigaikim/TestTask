@@ -18,11 +18,15 @@ public class Operand {
                 result = one.getValue() / two.getValue();
                 break;
             default:
-                throw new Exception("Используйте следующие символы для операций +, -, *, /");
+                throw new Exception("Используйте только эти символы для операций +, -, *, /");
         }
 
-        if (one.getType() == NumberType.ROMAN) {
+        if (one.getType() == NumberType.ROMAN & result < 0) {
+            return "-" + CalcsCheck.toRomanNumber(result * -1);
+        }
+        if (one.getType() == NumberType.ROMAN & result > 0) {
             return CalcsCheck.toRomanNumber(result);
-        } else return String.valueOf(result);
+        }
+        else return String.valueOf(result);
     }
 }

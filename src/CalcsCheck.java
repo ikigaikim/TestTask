@@ -11,6 +11,11 @@ class CalcsCheck {
         romanToarabian.put(5, "V");
         romanToarabian.put(9, "IX");
         romanToarabian.put(10, "X");
+        romanToarabian.put(40, "XL");
+        romanToarabian.put(50, "L");
+        romanToarabian.put(90, "XC");
+        romanToarabian.put(100, "C");
+
     }
 
     static NumberIde parseAndValidate(String symbol) throws Exception {
@@ -37,7 +42,7 @@ class CalcsCheck {
 
         NumberIde NumberIde = parseAndValidate(symbol);
         if (NumberIde.getType() != type) {
-            throw new Exception("Числа разных типов, используйте один тип");
+            throw new Exception("Используйте один тип чисел");
         }
 
         return NumberIde;
